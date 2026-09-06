@@ -1,0 +1,66 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f6f7f2;
+  --surface: #fff;
+  --text: #20251f;
+  --muted: #687067;
+  --accent: #176b4d;
+  --border: #dce2da;
+  --note: #e9f4ee;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.75;
+}
+
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 0.14em; }
+
+.site-header, main, footer {
+  width: min(100% - 2rem, 52rem);
+  margin-inline: auto;
+}
+
+.site-header { padding: 3.5rem 0 1.5rem; }
+.site-header a { color: inherit; text-decoration: none; }
+.eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+h1, h2, h3 { line-height: 1.3; }
+h1 { margin: .25rem 0; font-size: clamp(2rem, 7vw, 3.5rem); letter-spacing: -.035em; }
+h2 { margin-top: 2.5rem; }
+.lede, .meta, footer { color: var(--muted); }
+.meta { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; padding: 0; list-style: none; }
+
+main {
+  padding: 1.5rem clamp(1rem, 4vw, 3rem) 3rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: 0 .8rem 2rem rgb(32 37 31 / 7%);
+}
+
+.report-list { padding: 0; list-style: none; }
+.report-list li { padding: 1.25rem 0; border-top: 1px solid var(--border); }
+.report-list li:last-child { border-bottom: 1px solid var(--border); }
+.report-list a { font-size: 1.15rem; font-weight: 700; }
+.report-list p { margin: .35rem 0 0; color: var(--muted); }
+.callout { padding: 1rem 1.25rem; background: var(--note); border-left: .3rem solid var(--accent); border-radius: .35rem; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: .7rem; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+th { background: var(--bg); }
+footer { padding: 2rem 0 3rem; font-size: .9rem; }
+
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #111713; --surface: #18201b; --text: #edf2ed; --muted: #adb8ae; --accent: #76d8ae; --border: #354139; --note: #21392e; }
+}
+
+@media (max-width: 35rem) {
+  .site-header { padding-top: 2rem; }
+  main { border-radius: .6rem; }
+  table { display: block; overflow-x: auto; }
+}
